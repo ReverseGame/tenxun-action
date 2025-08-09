@@ -19,7 +19,6 @@ const config = {
       resolveOnly: ['@actions/core']
     })
   ],
-  external: ['@reverse_game/tencent_cloud']
 }
 
 export default config
