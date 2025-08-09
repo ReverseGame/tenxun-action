@@ -1,4 +1,4 @@
-import * as tencent_cloud from '@reverse_game/tencent_cloud'
+import * as tencent_cloud from './tencent_cloud'
 import * as core from '@actions/core'
 export async function run() {
   let action = core.getInput('action')
