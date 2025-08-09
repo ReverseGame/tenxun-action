@@ -1,0 +1,20 @@
+{
+  "name": "@reverse_game/tencent_cloud",
+  "type": "module",
+  "collaborators": [
+    "taochen <15736755067@163.com>"
+  ],
+  "version": "0.2.2",
+  "files": [
+    "tencent_cloud_bg.wasm",
+    "tencent_cloud.js",
+    "tencent_cloud_bg.js",
+    "tencent_cloud.d.ts"
+  ],
+  "main": "tencent_cloud.js",
+  "types": "tencent_cloud.d.ts",
+  "sideEffects": [
+    "./tencent_cloud.js",
+    "./snippets/*"
+  ]
+}
