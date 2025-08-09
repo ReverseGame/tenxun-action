@@ -18,7 +18,7 @@ const config = {
       preferBuiltins: true,
       resolveOnly: ['@actions/core']
     })
-  ],
+  ]
 }
 
 export default config
