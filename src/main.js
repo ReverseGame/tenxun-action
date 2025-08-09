@@ -1,5 +1,5 @@
-import * as tencent_cloud from '@reverse_game/tencent_cloud'
-import * as core from '@actions/core'
+const tencent_cloud = require('@reverse_game/tencent_cloud')
+const core = require('@actions/core')
 export async function run() {
   let action = core.getInput('action')
   if (action === 'create_image') {

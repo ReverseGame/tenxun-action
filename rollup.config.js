@@ -1,24 +1,16 @@
-import commonjs from '@rollup/plugin-commonjs'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
+// rollup.config.js
+const commonjs = require('@rollup/plugin-commonjs')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
 
 const config = {
   input: 'src/index.js',
   output: {
     esModule: true,
     file: 'dist/index.js',
-    format: 'es',
+    format: 'cjs', // 改为CommonJS格式
     sourcemap: true
   },
-  plugins: [
-    commonjs({
-      ignoreDynamicRequires: true,
-      exclude: ['node_modules/@reverse_game/tencent_cloud/**']
-    }),
-    nodeResolve({
-      preferBuiltins: true,
-      resolveOnly: ['@actions/core']
-    })
-  ]
+  plugins: [commonjs(), nodeResolve({ preferBuiltins: true })]
 }
 
-export default config
+module.exports = config // 使用module.exports导出
