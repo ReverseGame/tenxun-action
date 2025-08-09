@@ -1,27 +1,28 @@
+import * as tencent_cloud from '@reverse_game/tencent_cloud'
 import * as core from '@actions/core'
-import { wait } from './wait.js'
-
-/**
- * The main function for the action.
- *
- * @returns {Promise<void>} Resolves when the action is complete.
- */
 export async function run() {
-  try {
-    const ms = core.getInput('milliseconds')
-
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    // Log the current timestamp, wait, then log the new timestamp
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
-  } catch (error) {
-    // Fail the workflow run if an error occurs
-    if (error instanceof Error) core.setFailed(error.message)
+  let action = core.getInput('action')
+  if (action === 'create_image') {
+    return await tencent_cloud.create_image(
+      core.getInput('secret_id'),
+      core.getInput('secret_key'),
+      core.getInput('region'),
+      core.getInput('instance_name_prefix')
+    )
+  } else if (action === 'get_ips') {
+    return await tencent_cloud.get_ips(
+      core.getInput('secret_id'),
+      core.getInput('secret_key'),
+      core.getInput('region'),
+      core.getInput('instance_name_prefix')
+    )
+  } else if (action === 'create_image_sync_as') {
+    return await tencent_cloud.create_image_sync_as(
+      core.getInput('secret_id'),
+      core.getInput('secret_key'),
+      core.getInput('region'),
+      core.getInput('instance_name_prefix'),
+      core.getInput('launch_configuration_id')
+    )
   }
 }

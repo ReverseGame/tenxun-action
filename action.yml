@@ -1,6 +1,6 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+name: 'tenxun-action'
+description: 'tencent cloud action'
+author: 'ptechen'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,14 +9,28 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: Your input description here
+  action:
     required: true
-    default: '1000'
+    description: 'get_ips | create_image | create_image_sync_as'
+  secret_id:
+    required: true
+    description: tencent cloud secret_id
+  secret_key:
+    required: true
+    description: tencent cloud secret_key
+  region:
+    required: true
+    description: tencent cloud region
+  instance_name_prefix:
+    required: true
+    description: tencent cloud ECS instance_name_prefix
+  launch_configuration_id:
+    required: false
+    description: tencent cloud AS launch_configuration_id
 
 # Define your outputs here.
 outputs:
-  time:
+  result:
     description: Your output description here
 
 runs:
