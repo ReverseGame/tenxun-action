@@ -1,5 +1,3 @@
-// See: https://rollupjs.org/introduction/
-
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 
@@ -11,7 +9,17 @@ const config = {
     format: 'es',
     sourcemap: true
   },
-  plugins: [commonjs(), nodeResolve({ preferBuiltins: true })]
+  plugins: [
+    commonjs({
+      ignoreDynamicRequires: true,
+      exclude: ['node_modules/@reverse_game/tencent_cloud/**']
+    }),
+    nodeResolve({
+      preferBuiltins: true,
+      resolveOnly: ['@actions/core']
+    })
+  ],
+  external: ['@reverse_game/tencent_cloud']
 }
 
 export default config
