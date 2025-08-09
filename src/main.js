@@ -1,3 +1,9 @@
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 import * as tencent_cloud from '@reverse_game/tencent_cloud'
 import * as core from '@actions/core'
 export async function run() {

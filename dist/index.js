@@ -1,5 +1,6 @@
+import require$$1$5, { fileURLToPath } from 'url';
+import require$$1, { dirname } from 'path';
 import require$$0 from 'util';
-import require$$1 from 'path';
 import require$$1$1 from 'fs';
 import require$$0$1 from 'os';
 import require$$0$2 from 'crypto';
@@ -21,7 +22,6 @@ import require$$2$1 from 'perf_hooks';
 import require$$5 from 'util/types';
 import require$$4$1 from 'async_hooks';
 import require$$1$4 from 'console';
-import require$$1$5 from 'url';
 import require$$3$1 from 'zlib';
 import require$$6 from 'string_decoder';
 import require$$0$9 from 'diagnostics_channel';
@@ -27820,6 +27820,8 @@ function requireCore () {
 
 var coreExports = requireCore();
 
+const __filename = fileURLToPath(import.meta.url);
+dirname(__filename);
 async function run() {
   let action = coreExports.getInput('action');
   if (action === 'create_image') {
